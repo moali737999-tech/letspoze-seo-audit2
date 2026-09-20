@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Technical SEO re-audit for letspoze.com — Health Score 45/100, up from 22. 8 of 28 pages now index cleanly; the services section still hangs on Loading.">
+<title>letspoze.com — SEO Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#f3f4f7;
+    --surface:#ffffff;
+    --surface-2:#eceef2;
+    --text:#1a1c23;
+    --muted:#5b6172;
+    --line:#dcdfe6;
+    --accent:#d6002f;
+    --accent-ink:#ffffff;
+    --critical:#c81e35;
+    --critical-bg:#fce9eb;
+    --high:#b3540a;
+    --high-bg:#fdf0e2;
+    --medium:#8a6d00;
+    --medium-bg:#fbf3d1;
+    --low:#2456c9;
+    --low-bg:#e8eefd;
+    --good:#1e7d43;
+    --good-bg:#e5f6ec;
+    --shadow: 0 1px 2px rgba(20,20,30,.04), 0 8px 24px -12px rgba(20,20,30,.12);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#101219;
+      --surface:#171922;
+      --surface-2:#1e212c;
+      --text:#e9eaf0;
+      --muted:#9298ab;
+      --line:#2a2d38;
+      --accent:#ff3f5e;
+      --accent-ink:#171922;
+      --critical:#ff5468;
+      --critical-bg:#3a1620;
+      --high:#ffab5e;
+      --high-bg:#3a2712;
+      --medium:#ffe17a;
+      --medium-bg:#3a3212;
+      --low:#7ea3ff;
+      --low-bg:#151f3a;
+      --good:#5fd694;
+      --good-bg:#0f2e1e;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#101219;
+    --surface:#171922;
+    --surface-2:#1e212c;
+    --text:#e9eaf0;
+    --muted:#9298ab;
+    --line:#2a2d38;
+    --accent:#ff3f5e;
+    --accent-ink:#171922;
+    --critical:#ff5468;
+    --critical-bg:#3a1620;
+    --high:#ffab5e;
+    --high-bg:#3a2712;
+    --medium:#ffe17a;
+    --medium-bg:#3a3212;
+    --low:#7ea3ff;
+    --low-bg:#151f3a;
+    --good:#5fd694;
+    --good-bg:#0f2e1e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.6);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Public Sans', 'Segoe UI', Tahoma, sans-serif;
+    margin:0;
+    font-size:15px;
+    line-height:1.65;
+  }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  h1,h2,h3{ font-family:'Fraunces', Georgia, serif; font-weight:700; letter-spacing:-.01em; text-wrap:balance; margin:0; }
+  a{ color:var(--accent); }
+  .wrap{ max-width:1080px; margin:0 auto; padding-inline:20px; }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:20;
+    background:color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-block:12px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-mark{ width:30px; height:30px; border-radius:8px; background:var(--accent); color:var(--accent-ink); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:900; font-size:15px; flex:none; }
+  .brand-name{ font-weight:700; font-size:15px; }
+  .brand-sub{ color:var(--muted); font-size:12.5px; }
+  .topbar-meta{ display:flex; gap:10px; align-items:center; font-size:12.5px; color:var(--muted); flex-wrap:wrap; }
+  .host-pill{ font-family:'IBM Plex Mono',monospace; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px 10px; font-size:11.5px; }
+
+  /* ---------- hero / score ---------- */
+  .hero{ padding-block:44px 32px; }
+  .hero-grid{ display:grid; grid-template-columns: 200px 1fr; gap:36px; align-items:center; }
+  .gauge-wrap{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .gauge-label{ font-size:11.5px; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--critical); font-weight:600; margin-bottom:10px; }
+  .eyebrow::before{ content:""; width:7px; height:7px; border-radius:999px; background:var(--critical); }
+  .hero h1{ font-size:clamp(28px,4vw,40px); line-height:1.15; }
+  .hero p.lead{ color:var(--muted); font-size:16px; max-width:60ch; margin-top:12px; }
+  .hero-facts{ display:flex; gap:22px; margin-top:20px; flex-wrap:wrap; }
+  .hero-fact b{ font-family:'Fraunces',serif; font-size:22px; font-weight:700; display:block; }
+  .hero-fact span{ color:var(--muted); font-size:12.5px; }
+
+  /* ---------- section shell ---------- */
+  section{ padding-block:34px; border-top:1px solid var(--line); }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+  .section-head h2{ font-size:22px; }
+  .section-head .hint{ color:var(--muted); font-size:13px; }
+
+  /* ---------- category bars ---------- */
+  .cat-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+  .cat-card{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow); }
+  .cat-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+  .cat-name{ font-weight:600; font-size:13.5px; }
+  .cat-score{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:13.5px; }
+  .cat-bar-track{ height:7px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+  .cat-bar-fill{ height:100%; border-radius:99px; }
+  .cat-weight{ margin-top:8px; color:var(--muted); font-size:11.5px; }
+
+  /* ---------- route board ---------- */
+  .route-groups{ display:flex; flex-direction:column; gap:22px; }
+  .route-group h3{ font-size:14px; font-weight:600; font-family:'Public Sans',sans-serif; color:var(--muted); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em; }
+  .route-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+  .route-pill{ display:flex; align-items:center; gap:8px; border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:8px 11px; font-size:12.5px; }
+  .route-path{ font-family:'IBM Plex Mono',monospace; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .dot{ width:8px; height:8px; border-radius:999px; flex:none; }
+  .dot.ok{ background:var(--good); }
+  .dot.bad{ background:var(--critical); }
+  .dot.soft{ background:var(--high); }
+  .route-status{ font-size:11px; color:var(--muted); flex:none; }
+  .legend{ display:flex; gap:18px; margin-top:16px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+
+  /* ---------- findings ---------- */
+  .findings{ display:flex; flex-direction:column; gap:12px; }
+  .finding{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow); }
+  .finding-top{ display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+  .sev{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; border-radius:6px; }
+  .sev.critical{ color:var(--critical); background:var(--critical-bg); }
+  .sev.high{ color:var(--high); background:var(--high-bg); }
+  .sev.medium{ color:var(--medium); background:var(--medium-bg); }
+  .sev.low{ color:var(--low); background:var(--low-bg); }
+  .sev.fixed{ color:var(--good); background:var(--good-bg); }
+  .compare{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:22px; }
+  .cmp{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .cmp span{ display:block; font-size:12px; color:var(--muted); }
+  .cmp b{ font-family:'IBM Plex Mono',monospace; font-size:15px; font-weight:600; }
+  .cmp b s{ color:var(--muted); font-weight:400; margin-inline-end:6px; }
+  .finding h4{ font-family:'Public Sans',sans-serif; font-weight:700; font-size:14.5px; margin:0; }
+  .finding p{ margin:6px 0 0; color:var(--muted); font-size:13.5px; }
+  .finding .fix{ margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); font-size:13.5px; }
+  .finding .fix b{ color:var(--text); }
+
+  /* ---------- code block ---------- */
+  pre{ background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:16px; overflow-x:auto; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.6; }
+  code{ font-family:'IBM Plex Mono',monospace; }
+
+  /* ---------- shots ---------- */
+  .shots{ display:grid; grid-template-columns: 1.15fr .85fr; gap:16px; align-items:start; }
+  .shot-card{ background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); }
+  .shot-card img{ display:block; width:100%; height:auto; border-bottom:1px solid var(--line); }
+  .shot-cap{ padding:10px 14px; font-size:12px; color:var(--muted); display:flex; justify-content:space-between; }
+
+  /* ---------- roadmap ---------- */
+  .roadmap{ display:flex; flex-direction:column; gap:0; }
+  .phase{ display:grid; grid-template-columns:150px 1fr; gap:18px; padding-block:16px; border-top:1px solid var(--line); }
+  .phase:first-child{ border-top:none; }
+  .phase-tag b{ display:block; font-family:'Fraunces',serif; font-size:16px; }
+  .phase-tag span{ color:var(--muted); font-size:12px; }
+  .phase ul{ margin:0; padding-inline-start:18px; display:flex; flex-direction:column; gap:6px; font-size:13.5px; }
+
+  footer{ padding-block:30px 60px; color:var(--muted); font-size:12.5px; }
+  footer .wrap{ display:flex; flex-direction:column; gap:6px; }
+
+  @media (max-width:720px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .gauge-wrap{ flex-direction:row; justify-content:flex-start; gap:16px; }
+    .shots{ grid-template-columns:1fr; }
+    .phase{ grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">L</div>
+      <div>
+        <div class="brand-name">letspoze.com</div>
+        <div class="brand-sub">SEO Audit Report — re-audit</div>
+      </div>
+    </div>
+    <div class="topbar-meta">
+      <span class="mono">2026-09-20</span>
+      <span class="host-pill">Technical + On-Page + Schema + GEO</span>
+    </div>
+  </div>
+</div>
+
+<div class="hero wrap">
+  <div class="hero-grid">
+    <div class="gauge-wrap">
+      <svg width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="gaugeTitle">
+        <title id="gaugeTitle">SEO Health Score 45 out of 100, up from 22</title>
+        <circle cx="90" cy="90" r="78" fill="none" stroke="var(--surface-2)" stroke-width="16"/>
+        <circle cx="90" cy="90" r="78" fill="none" stroke="var(--high)" stroke-width="16"
+                stroke-linecap="round" stroke-dasharray="489.8" stroke-dashoffset="269.4"
+                transform="rotate(-90 90 90)"/>
+        <text x="90" y="86" text-anchor="middle" font-family="Fraunces, serif" font-weight="800" font-size="46" fill="var(--text)">45</text>
+        <text x="90" y="110" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)">/ 100</text>
+      </svg>
+      <div class="gauge-label">SEO Health Score · was 22</div>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--high)">Improving — one blocker left</div>
+      <h1>Big progress: 8 of 28 pages now index cleanly, but the services section still hangs</h1>
+      <p class="lead">Since the first audit, the metadata, canonical, Open Graph and schema tags were added, www now redirects, the sitemap was rebuilt, and /events returns a real 404. The remaining problem is that 20 pages — /services with its 12 sub-pages, the 6 case-study pages and /blog — still get stuck on "Loading…" in a real browser.</p>
+      <div class="hero-facts">
+        <div class="hero-fact"><b class="mono">8 / 28</b><span>sitemap pages render (was 1)</span></div>
+        <div class="hero-fact"><b class="mono">20</b><span>pages still stuck on Loading…</span></div>
+        <div class="hero-fact"><b class="mono">8</b><span>pages with title, meta, canonical, OG, schema</span></div>
+        <div class="hero-fact"><b class="mono">1</b><span>canonical host (www → 301)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap" id="categories">
+  <div class="section-head">
+    <h2>Score by category</h2>
+    <div class="hint">new score vs first audit — estimates re-weighted on what a crawler now sees</div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Technical SEO</span><span class="cat-score" style="color:var(--high)">40/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:40%;background:var(--high)"></div></div><div class="cat-weight">was 15 · 22% weight — redirects, 404s, sitemap fixed; 20 pages still hang</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Content Quality</span><span class="cat-score" style="color:var(--high)">45/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:45%;background:var(--high)"></div></div><div class="cat-weight">was 25 · 23% weight — about, contact, blog posts now visible</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">On-Page SEO</span><span class="cat-score" style="color:var(--high)">45/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:45%;background:var(--high)"></div></div><div class="cat-weight">was 10 · 20% weight — tags present on rendered pages only</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Schema / Structured Data</span><span class="cat-score" style="color:var(--high)">40/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:40%;background:var(--high)"></div></div><div class="cat-weight">was 0 · 10% weight — JSON-LD on 8 pages, content not yet validated</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Performance</span><span class="cat-score" style="color:var(--medium)">55/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:55%;background:var(--medium)"></div></div><div class="cat-weight">unchanged · 10% weight — still no Lighthouse data</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">AI Search Readiness</span><span class="cat-score" style="color:var(--high)">35/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:35%;background:var(--high)"></div></div><div class="cat-weight">was 15 · 10% weight — no real llms.txt yet</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Images</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 5% weight — not re-checked</div></div>
+  </div>
+</section>
+
+<section class="wrap" id="routes">
+  <div class="section-head">
+    <h2>Route status</h2>
+    <div class="hint">every URL in the new sitemap, rendered in a real browser (Playwright/Chromium)</div>
+  </div>
+  <div class="route-groups">
+    <div class="route-group">
+      <h3>Core pages</h3>
+      <div class="route-grid">
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/</span><span class="route-status">renders</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/about</span><span class="route-status">renders</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services</span><span class="route-status">Loading…</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/case-studies</span><span class="route-status">renders</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/blog</span><span class="route-status">Loading…</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/contact</span><span class="route-status">renders</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/saudi-national-day</span><span class="route-status">renders</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/events</span><span class="route-status">real 404 ✓</span></div>
+      </div>
+    </div>
+    <div class="route-group">
+      <h3>Service pages (12)</h3>
+      <div class="route-grid">
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/enclosed-photobooth</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/selfie-mirror</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/xl-booth</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/the-claw</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/digital-wireless</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/360-video-booth</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/180-v-motion</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/glambot</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/ai-photo-booth</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/digital-mosaic</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/mosaic-wall</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/services/the-roamer</span></div>
+      </div>
+    </div>
+    <div class="route-group">
+      <h3>Case studies (6)</h3>
+      <div class="route-grid">
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/toyota</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/ikea-2020-catalogue-launch</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/evian-snow-globe-experience</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/mon-guerlain-regional-launch</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/petromin-riyadh-season</span></div>
+        <div class="route-pill"><span class="dot bad"></span><span class="route-path">/case-studies/digital-city-identity-launch</span></div>
+      </div>
+    </div>
+    <div class="route-group">
+      <h3>Blog posts (3)</h3>
+      <div class="route-grid">
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/360-Booth-Exhibitions</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/3d-photo-cube-booth-events-for-corporate-weddings</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/rent-wireless-photo-booth-for-events-in-saudi-arabia</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <span><span class="dot ok"></span> renders with title, description, canonical, OG and schema</span>
+    <span><span class="dot bad"></span> stuck on "Loading…" in this crawl</span>
+  </div>
+  <p class="hint" style="margin-top:14px">Rendering is not fully consistent: <span class="mono">/blog</span> and the IKEA case study rendered in earlier one-off tests but hung in the full crawl, so these pages likely load slowly or fail intermittently rather than never loading.</p>
+</section>
+
+<section class="wrap" id="fixed">
+  <div class="section-head">
+    <h2>Fixed since the first audit</h2>
+    <div class="hint">verified in this pass</div>
+  </div>
+  <div class="findings">
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Title, meta description, canonical and Open Graph tags</h4></div><p>Present on all 8 pages that render, including the three blog posts (6 OG tags each) and the seasonal campaign page.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>JSON-LD structured data</h4></div><p>One JSON-LD block on each of the 8 rendering pages (was zero). The block contents were not validated in this pass.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>www / http duplicates</h4></div><p><span class="mono">https://www.letspoze.com/</span> and <span class="mono">http://letspoze.com/</span> now 301-redirect to <span class="mono">https://letspoze.com/</span>.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Sitemap and 404s</h4></div><p><span class="mono">sitemap.xml</span> now lists 28 real URLs (was 6, with a broken one), and <span class="mono">/events</span> returns a real HTTP 404.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Homepage heading structure</h4></div><p>The homepage now has a single h1.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="findings">
+  <div class="section-head">
+    <h2>Still open</h2>
+    <div class="hint">ordered by severity</div>
+  </div>
+  <div class="findings">
+    <div class="finding">
+      <div class="finding-top"><span class="sev critical">Critical</span><h4>20 sitemap pages still hang on "Loading…"</h4></div>
+      <p><span class="mono">/services</span> and all 12 service pages, the 6 case-study detail pages, and <span class="mono">/blog</span> return 200 but never render content in the crawl (40-second timeout). This is now the entire services section — the pages that sell the product.</p>
+      <div class="fix"><b>Fix:</b> compare what <span class="mono">/about</span> and <span class="mono">/case-studies</span> do differently from <span class="mono">/services</span>, since those now load. Check the data loader behind the services and case-study detail routes for a slow or failing request.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev high">High</span><h4>No title or description in the server-sent HTML</h4></div>
+      <p>The raw HTML still contains only a shell with a comment saying the head is managed client-side. Crawlers and social previews that don't run JavaScript see no title or description on any route.</p>
+      <div class="fix"><b>Fix:</b> pre-render or server-render the head tags per route, or add static defaults to the HTML shell.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev high">High</span><h4>/llms.txt returns the site shell, not a file</h4></div>
+      <p>The URL answers 200 with the SPA's HTML, so AI crawlers get no real guidance file.</p>
+      <div class="fix"><b>Fix:</b> serve a plain-text <span class="mono">llms.txt</span> or return 404.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev medium">Medium</span><h4>No HSTS header</h4></div>
+      <p>The HTTPS response still lacks <span class="mono">Strict-Transport-Security</span>.</p>
+      <div class="fix"><b>Fix:</b> add <span class="mono">max-age=31536000; includeSubDomains</span>.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev medium">Medium</span><h4>No Arabic version of the core site</h4></div>
+      <p>The main site is English only; the only Arabic page is the seasonal campaign. For a Saudi-first brand this is a market-reach gap rather than a bug.</p>
+      <div class="fix"><b>Fix:</b> decide whether to build a full Arabic version.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev low">Low</span><h4>Generic alt="brand" on partner logos</h4></div>
+      <p>Not re-checked in this pass; assume still open.</p>
+      <div class="fix"><b>Fix:</b> descriptive alt text per logo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="shots">
+  <div class="section-head">
+    <h2>Homepage — screenshots</h2>
+    <div class="hint">captured in the first audit</div>
+  </div>
+  <div class="shots">
+    <div class="shot-card">
+      <img src="screenshots/desktop.png" alt="letspoze.com homepage desktop screenshot" loading="lazy">
+      <div class="shot-cap"><span>Desktop · 1920px</span><span class="mono">200 OK</span></div>
+    </div>
+    <div class="shot-card">
+      <img src="screenshots/mobile.png" alt="letspoze.com homepage mobile screenshot" loading="lazy">
+      <div class="shot-cap"><span>Mobile · 390px</span><span class="mono">200 OK</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="roadmap">
+  <div class="section-head">
+    <h2>Next steps</h2>
+    <div class="hint">the services fix is worth more than everything else combined</div>
+  </div>
+  <div class="roadmap">
+    <div class="phase">
+      <div class="phase-tag"><b>Now</b><span>Week 1</span></div>
+      <ul>
+        <li>[Eng] Fix the "Loading…" hang on /services, the 12 service pages, the 6 case-study pages and /blog</li>
+        <li>[Eng] Server-render or pre-render title and description per route</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-tag"><b>Next</b><span>Weeks 2–3</span></div>
+      <ul>
+        <li>Validate the JSON-LD (LocalBusiness, Service, Article, BreadcrumbList) once all pages render</li>
+        <li>Serve a real llms.txt</li>
+        <li>Add the HSTS header</li>
+        <li>Descriptive alt text for partner logos</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-tag"><b>Later</b><span>Month 2</span></div>
+      <ul>
+        <li>Re-audit content depth on services and case studies once they render</li>
+        <li>Keyword research and competitor analysis (Saudi/GCC)</li>
+        <li>Decide on a full Arabic version</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="phase-tag"><b>Ongoing</b><span>Monitoring</span></div>
+      <ul>
+        <li>Real Core Web Vitals data (Lighthouse / CrUX)</li>
+        <li>Google Search Console and indexing coverage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Re-audit on 2026-09-20: every URL in the new sitemap was rendered in a real browser (Playwright/Chromium, 40-second timeout).</span>
+  <span>Category scores are re-weighted estimates. Methodology limits: no Lighthouse/CrUX data and no Moz/Bing backlink data.</span>
+  <span class="mono">letspoze.com SEO audit — first audit 2026-09-17, re-audit 2026-09-20</span>
+</footer>
+
+</body>
+</html>
