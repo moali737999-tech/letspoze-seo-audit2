@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Fourth SEO audit for letspoze.com — Health Score 73/100. All 28 pages render; alt text fixed; body prerender and schema depth remain open.">
+<meta name="description" content="Fifth SEO audit for letspoze.com — Health Score 85/100, up from 22. Page body is now server-rendered; BlogPosting schema, office locations and llms.txt added.">
 <title>letspoze.com — SEO Audit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,11 +205,11 @@
       <div class="brand-mark">L</div>
       <div>
         <div class="brand-name">letspoze.com</div>
-        <div class="brand-sub">SEO Audit Report — fourth audit</div>
+        <div class="brand-sub">SEO Audit Report — fifth audit</div>
       </div>
     </div>
     <div class="topbar-meta">
-      <span class="mono">2026-09-23</span>
+      <span class="mono">2026-09-24</span>
       <span class="host-pill">Technical + On-Page + Schema + GEO</span>
     </div>
   </div>
@@ -219,31 +219,32 @@
   <div class="hero-grid">
     <div class="gauge-wrap">
       <svg width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="gaugeTitle">
-        <title id="gaugeTitle">SEO Health Score 73 out of 100</title>
+        <title id="gaugeTitle">SEO Health Score 85 out of 100</title>
         <circle cx="90" cy="90" r="78" fill="none" stroke="var(--surface-2)" stroke-width="16"/>
         <circle cx="90" cy="90" r="78" fill="none" stroke="var(--good)" stroke-width="16"
-                stroke-linecap="round" stroke-dasharray="489.8" stroke-dashoffset="132.2"
+                stroke-linecap="round" stroke-dasharray="489.8" stroke-dashoffset="73.5"
                 transform="rotate(-90 90 90)"/>
-        <text x="90" y="86" text-anchor="middle" font-family="Fraunces, serif" font-weight="800" font-size="46" fill="var(--text)">73</text>
+        <text x="90" y="86" text-anchor="middle" font-family="Fraunces, serif" font-weight="800" font-size="46" fill="var(--text)">85</text>
         <text x="90" y="110" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)">/ 100</text>
       </svg>
       <div class="gauge-label">SEO Health Score</div>
     </div>
     <div>
-      <div class="eyebrow" style="color:var(--good)">Stable — small win, same open items</div>
-      <h1>Partner logo alt text is fixed; everything else holds steady at a healthy baseline</h1>
-      <p class="lead">All 28 sitemap pages still render cleanly with no regressions. The one change since the last audit: all 19 partner logos (BMW, Sephora, Mercedes-Benz, IKEA and others) now carry the brand name as alt text, with the duplicate marquee copies correctly left empty for the scrolling animation. The items flagged as open last time — client-rendered body content, missing Article/LocalBusiness schema, four over-long titles/descriptions, no llms.txt — are all still open, unchanged.</p>
+      <div class="eyebrow" style="color:var(--good)">Strong — polish and monitoring left</div>
+      <h1>The page body now ships in the server HTML, and most of the open items are closed</h1>
+      <p class="lead">Every route now sends its full content — headings, text and internal links — in the raw HTML instead of just the head, so crawlers and AI bots that don't run JavaScript can read the site. Blog posts carry BlogPosting schema, the Riyadh and Jeddah offices are in the organization schema, the four over-long titles and descriptions are trimmed, and llms.txt is a real file. One thing to watch: under a parallel crawl, 7 pages hung on "Loading…" in the browser, though all rendered correctly when retried one at a time.</p>
       <div class="hero-facts">
-        <div class="hero-fact"><b class="mono">28 / 28</b><span>sitemap pages render, no regressions</span></div>
-        <div class="hero-fact"><b class="mono">19 / 19</b><span>partner logos now named in alt text</span></div>
-        <div class="hero-fact"><b class="mono">4</b><span>pages still over title/description length</span></div>
-        <div class="hero-fact"><b class="mono">0</b><span>Article / LocalBusiness schema added</span></div>
+        <div class="hero-fact"><b class="mono">29 / 29</b><span>sitemap pages render (a new blog post joined)</span></div>
+        <div class="hero-fact"><b class="mono">46–90 KB</b><span>server HTML per page (was about 4 KB)</span></div>
+        <div class="hero-fact"><b class="mono">4</b><span>blog posts with BlogPosting schema</span></div>
+        <div class="hero-fact"><b class="mono">7</b><span>pages hung under parallel load</span></div>
       </div>
       <div class="compare">
         <div class="cmp"><span>Audit 1 · Sep 17</span><b>22</b></div>
         <div class="cmp"><span>Audit 2 · Sep 20</span><b>45</b></div>
         <div class="cmp"><span>Audit 3 · Sep 21</span><b>72</b></div>
-        <div class="cmp"><span>Audit 4 · Sep 23</span><b style="color:var(--good)">73</b></div>
+        <div class="cmp"><span>Audit 4 · Sep 23</span><b>73</b></div>
+        <div class="cmp"><span>Audit 5 · Sep 24</span><b style="color:var(--good)">85</b></div>
       </div>
     </div>
   </div>
@@ -252,23 +253,23 @@
 <section class="wrap" id="categories">
   <div class="section-head">
     <h2>Score by category</h2>
-    <div class="hint">was → now — estimates re-weighted on what a crawler sees</div>
+    <div class="hint">estimates re-weighted on what a crawler sees</div>
   </div>
   <div class="cat-grid">
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">Technical SEO</span><span class="cat-score" style="color:var(--good)">80/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:80%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 22% weight — body still rendered client-side</div></div>
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">Content Quality</span><span class="cat-score" style="color:var(--good)">70/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:70%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 23% weight</div></div>
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">On-Page SEO</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 20% weight — 4 titles/descriptions still too long</div></div>
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">Schema / Structured Data</span><span class="cat-score" style="color:var(--good)">70/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:70%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 10% weight — still no Article or LocalBusiness</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Technical SEO</span><span class="cat-score" style="color:var(--good)">90/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:90%;background:var(--good)"></div></div><div class="cat-weight">80 → 90 · 22% weight — body prerendered; hangs under load still to watch</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Content Quality</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">70 → 85 · 23% weight — content visible without JavaScript</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">On-Page SEO</span><span class="cat-score" style="color:var(--good)">92/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:92%;background:var(--good)"></div></div><div class="cat-weight">85 → 92 · 20% weight — lengths fixed; /blog canonical drops after render</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Schema / Structured Data</span><span class="cat-score" style="color:var(--good)">88/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:88%;background:var(--good)"></div></div><div class="cat-weight">70 → 88 · 10% weight — BlogPosting and office locations added</div></div>
     <div class="cat-card"><div class="cat-top"><span class="cat-name">Performance</span><span class="cat-score" style="color:var(--medium)">55/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:55%;background:var(--medium)"></div></div><div class="cat-weight">unchanged · 10% weight — still no Lighthouse data</div></div>
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">AI Search Readiness</span><span class="cat-score" style="color:var(--high)">50/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:50%;background:var(--high)"></div></div><div class="cat-weight">unchanged · 10% weight — body text absent from raw HTML</div></div>
-    <div class="cat-card"><div class="cat-top"><span class="cat-name">Images</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">80 → 85 · 5% weight — partner logos now named</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">AI Search Readiness</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">50 → 85 · 10% weight — body text in raw HTML, real llms.txt</div></div>
+    <div class="cat-card"><div class="cat-top"><span class="cat-name">Images</span><span class="cat-score" style="color:var(--good)">85/100</span></div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:85%;background:var(--good)"></div></div><div class="cat-weight">unchanged · 5% weight</div></div>
   </div>
 </section>
 
 <section class="wrap" id="routes">
   <div class="section-head">
     <h2>Route status</h2>
-    <div class="hint">all 28 sitemap URLs, rendered in a real browser (Playwright/Chromium) — no regressions from audit 3</div>
+    <div class="hint">all 29 sitemap URLs, rendered in a real browser (Playwright/Chromium)</div>
   </div>
   <div class="route-groups">
     <div class="route-group">
@@ -313,17 +314,19 @@
       </div>
     </div>
     <div class="route-group">
-      <h3>Blog posts (3)</h3>
+      <h3>Blog posts (4)</h3>
       <div class="route-grid">
         <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/360-Booth-Exhibitions</span></div>
         <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/3d-photo-cube-booth-events-for-corporate-weddings</span></div>
         <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/rent-wireless-photo-booth-for-events-in-saudi-arabia</span></div>
+        <div class="route-pill"><span class="dot ok"></span><span class="route-path">/blog/roaming-photo-booth-experience-for-events-and-parties</span></div>
       </div>
     </div>
   </div>
   <div class="legend">
-    <span><span class="dot ok"></span> renders with title, description, canonical, OG and schema</span>
+    <span><span class="dot ok"></span> renders with title, description, canonical, OG, schema and body content</span>
   </div>
+  <p class="hint" style="margin-top:14px">In the first, parallel pass (3 pages at a time) 7 pages — the homepage, /about, /blog, the Toyota case study and three service pages — stayed on "Loading…". All of them, plus /contact and the Saudi National Day page, rendered normally when re-run one at a time. The parallel crawl on 23 September had no hangs, so this is intermittent.</p>
 </section>
 
 <section class="wrap" id="fixed">
@@ -332,40 +335,45 @@
     <div class="hint">verified in this pass</div>
   </div>
   <div class="findings">
-    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Partner logo alt text</h4></div><p>All 19 distinct partner logos (BMW, Sephora, Mercedes-Benz, IKEA, Nestlé, Chanel, Guerlain, Dove, Perrier, Hyatt, Toyota, Deloitte, SABIC, Porsche, Harley-Davidson, HSBC, Karl Lagerfeld, Kate Spade, Ralph Lauren) now carry the brand name as alt text. The duplicate copies used for the infinite scroll animation are correctly left with empty alt so screen readers don't announce them twice.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Page body now in the server HTML</h4></div><p>Raw HTML per route grew from about 4 KB (head only) to 46–90 KB and now contains the <span class="mono">&lt;h1&gt;</span>, seven <span class="mono">&lt;h2&gt;</span> and twenty <span class="mono">&lt;h3&gt;</span> elements on the homepage, plus 26 internal links. Crawlers and AI bots that skip JavaScript can now read the content.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>BlogPosting schema on blog posts</h4></div><p>All 4 posts now carry <span class="mono">BlogPosting</span> (with headline, description, URL and <span class="mono">WebPage</span> entity).</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Riyadh and Jeddah offices in schema</h4></div><p>The <span class="mono">Organization</span> block on all 29 pages now lists two <span class="mono">Place</span> entries with <span class="mono">PostalAddress</span> (Riyadh and Jeddah, SA), plus the Instagram, TikTok and LinkedIn profiles.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>Title and description lengths</h4></div><p>Homepage and /about titles are now 59 characters (were 67 and 72); the Petromin and Digital City descriptions are 155 and 142 (were 190 and 166). No page exceeds 60 for titles or 160 for descriptions.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Fixed</span><h4>llms.txt</h4></div><p><span class="mono">/llms.txt</span> is now a real <span class="mono">text/plain</span> file describing the company, main pages, three featured services and the sitemap.</p></div>
+    <div class="finding"><div class="finding-top"><span class="sev fixed">Added</span><h4>New blog post in the sitemap</h4></div><p><span class="mono">/blog/roaming-photo-booth-experience-for-events-and-parties</span> was published and is in the 29-URL sitemap with the same head tags and schema as the other posts.</p></div>
   </div>
 </section>
 
 <section class="wrap" id="findings">
   <div class="section-head">
     <h2>Still open</h2>
-    <div class="hint">unchanged since the third audit, ordered by severity</div>
+    <div class="hint">ordered by severity</div>
   </div>
   <div class="findings">
     <div class="finding">
-      <div class="finding-top"><span class="sev high">High</span><h4>Page body is still built in the browser</h4></div>
-      <p>The raw HTML is still about 4–5 KB per route: head tags only, no <span class="mono">&lt;h1&gt;</span> or body text server-side. Crawlers and AI bots that don't run JavaScript read the title and description but none of the page content.</p>
-      <div class="fix"><b>Fix:</b> extend the existing prerender step to include the page body, or server-render the routes.</div>
+      <div class="finding-top"><span class="sev medium">Medium</span><h4>Pages can hang on "Loading…" under parallel load</h4></div>
+      <p>With three pages requested at once, 7 of 29 stayed on the loading screen in a real browser; the same pages rendered fine one at a time. The server HTML is complete either way, so crawlers that read raw HTML are unaffected, but a browser-based crawler could see an empty page.</p>
+      <div class="fix"><b>Fix:</b> check whether the host rate-limits parallel requests, and whether the client app can fail to start after hydrating the prerendered page. Re-test with a few pages at a time.</div>
     </div>
     <div class="finding">
-      <div class="finding-top"><span class="sev medium">Medium</span><h4>Schema is still thinner than it could be</h4></div>
-      <p>All 28 pages still resolve to the same four types: <span class="mono">Organization</span>, <span class="mono">BreadcrumbList</span>, <span class="mono">ListItem</span>, and <span class="mono">Service</span> on service pages. No <span class="mono">Article</span>/<span class="mono">BlogPosting</span> on the three blog posts, and no <span class="mono">LocalBusiness</span> entry with the Riyadh and Jeddah offices.</p>
-      <div class="fix"><b>Fix:</b> add <span class="mono">BlogPosting</span> to posts and office locations to the organization schema.</div>
+      <div class="finding-top"><span class="sev low">Low</span><h4>/blog loses its canonical tag after the page runs</h4></div>
+      <p>The raw HTML for <span class="mono">/blog</span> has <span class="mono">&lt;link rel="canonical"&gt;</span>, but the rendered DOM has none (the other 28 pages keep theirs). Google's rendered snapshot would miss it.</p>
+      <div class="fix"><b>Fix:</b> have the client head manager keep or re-add the canonical on the blog listing.</div>
     </div>
     <div class="finding">
-      <div class="finding-top"><span class="sev low">Low</span><h4>Four titles and descriptions still run long</h4></div>
-      <p>Homepage title 67 characters, /about title 72 (aim for ≤60). Petromin case-study description 190 characters, Digital City 166 (aim for ≤160). Not changed since the last audit.</p>
-      <div class="fix"><b>Fix:</b> tighten those four strings.</div>
-    </div>
-    <div class="finding">
-      <div class="finding-top"><span class="sev low">Low</span><h4>No llms.txt</h4></div>
-      <p>The URL still returns 404. Optional and ignored by Google, but some AI tools read it.</p>
-      <div class="fix"><b>Fix:</b> add a short plain-text <span class="mono">llms.txt</span> if AI visibility matters to you.</div>
+      <div class="finding-top"><span class="sev low">Low</span><h4>Office schema is city-level only</h4></div>
+      <p>The two <span class="mono">Place</span> entries name only the city and country — no street address, phone or opening hours — and the type is <span class="mono">Organization</span>, not <span class="mono">LocalBusiness</span>. Case studies carry only <span class="mono">Organization</span> and <span class="mono">BreadcrumbList</span>.</p>
+      <div class="fix"><b>Fix:</b> add street addresses and a phone number for each office if you want local-pack visibility; consider <span class="mono">LocalBusiness</span>.</div>
     </div>
     <div class="finding">
       <div class="finding-top"><span class="sev medium">Medium</span><h4>No Arabic version of the core site</h4></div>
       <p>The main site is English only; the only Arabic page is the seasonal campaign. For a Saudi-first brand this is a market-reach gap rather than a bug.</p>
       <div class="fix"><b>Fix:</b> decide whether to build a full Arabic version.</div>
+    </div>
+    <div class="finding">
+      <div class="finding-top"><span class="sev medium">Medium</span><h4>No real performance or search data yet</h4></div>
+      <p>There are still no Lighthouse or Core Web Vitals numbers, and no Google Search Console data on indexing and rankings, so the Performance score remains a placeholder.</p>
+      <div class="fix"><b>Fix:</b> connect Search Console and run PageSpeed Insights or Lighthouse.</div>
     </div>
   </div>
 </section>
@@ -390,29 +398,30 @@
 <section class="wrap" id="roadmap">
   <div class="section-head">
     <h2>Next steps</h2>
-    <div class="hint">unchanged priorities — the body-prerender fix is worth the most</div>
+    <div class="hint">the technical foundation is in place — the work shifts to measurement and growth</div>
   </div>
   <div class="roadmap">
     <div class="phase">
       <div class="phase-tag"><b>Now</b><span>Week 1</span></div>
       <ul>
-        <li>[Eng] Prerender the page body, not just the head</li>
-        <li>[SEO] Shorten the four over-long titles and descriptions</li>
+        <li>[Eng] Investigate the intermittent "Loading…" hang under parallel requests</li>
+        <li>[Eng] Keep the canonical on /blog after the client head updates</li>
+        <li>[SEO] Connect Google Search Console and submit the sitemap</li>
       </ul>
     </div>
     <div class="phase">
       <div class="phase-tag"><b>Next</b><span>Weeks 2–3</span></div>
       <ul>
-        <li>Add BlogPosting schema and office locations</li>
-        <li>Connect Google Search Console and submit the sitemap</li>
-        <li>Get real Core Web Vitals data (Lighthouse / PageSpeed)</li>
+        <li>Run PageSpeed Insights / Lighthouse for real Core Web Vitals</li>
+        <li>Add street addresses and phone numbers to the office schema</li>
+        <li>Keyword research and competitor analysis (Saudi/GCC)</li>
       </ul>
     </div>
     <div class="phase">
       <div class="phase-tag"><b>Later</b><span>Month 2</span></div>
       <ul>
         <li>Content review of services and case studies</li>
-        <li>Keyword research and competitor analysis (Saudi/GCC)</li>
+        <li>Publish more posts on the topics your services target</li>
         <li>Decide on a full Arabic version</li>
       </ul>
     </div>
@@ -427,9 +436,9 @@
 </section>
 
 <footer class="wrap">
-  <span>Fourth audit on 2026-09-23: every URL in the sitemap was rendered in a real browser (Playwright/Chromium, 40-second timeout) and the server HTML was checked separately.</span>
+  <span>Fifth audit on 2026-09-24: every URL in the sitemap was rendered in a real browser (Playwright/Chromium, 40-second timeout) and the server HTML was checked separately. Eight pages were re-run sequentially after hanging in the parallel pass.</span>
   <span>Category scores are re-weighted estimates. Methodology limits: no Lighthouse/CrUX data and no Moz/Bing backlink data.</span>
-  <span class="mono">letspoze.com SEO audit — 2026-09-17 · 2026-09-20 · 2026-09-21 · 2026-09-23</span>
+  <span class="mono">letspoze.com SEO audit — 2026-09-17 · 09-20 · 09-21 · 09-23 · 09-24</span>
 </footer>
 
 </body>
